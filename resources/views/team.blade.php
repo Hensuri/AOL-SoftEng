@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <!--
+<!--
   This example requires updating your template:
 
   ```

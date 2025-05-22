@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Document</title>
 </head>
+
+
 <body>
     <!--
   This example requires updating your template:
@@ -20,7 +22,7 @@
 -->
 <div class="min-h-full">
   <x-navbar></x-navbar>
-
+  
 
   <header class="bg-white shadow-sm">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">

@@ -9,4 +9,8 @@ class Home extends Controller
     public function index(){
         return view('team');
     }
+
+    public function hallo(){
+        return view('main-content');
+    }
 }

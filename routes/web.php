@@ -9,11 +9,11 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::group(['middleware' => 'authed'], function () {
+    Route::get('/team', [Home::class, 'index']);
+});
 
-
-Route::get('/team', [Home::class, 'index'])->middleware('authed');
-
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 

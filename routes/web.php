@@ -11,9 +11,9 @@ Route::get('/', function () {
 
 
 
-Route::get('/team', [Home::class, 'index'])->middleware('auth');
+Route::get('/team', [Home::class, 'index'])->middleware('authed');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 

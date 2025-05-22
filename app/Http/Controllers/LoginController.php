@@ -8,7 +8,12 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function index(){
-        return view('login.index');
+
+        if(Auth::check()){
+            return redirect("/team");
+        }else{
+            return view('login.index');
+        }
     }
 
 

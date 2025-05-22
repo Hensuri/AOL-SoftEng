@@ -31,6 +31,13 @@
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <!-- Your content -->
+      @foreach ($data as $user)
+        <div>
+          {{ $user->email }}
+          {{ $user->username }}
+          {{ $user->name }}
+        </div>
+      @endforeach
     </div>
   </main>
 </div>

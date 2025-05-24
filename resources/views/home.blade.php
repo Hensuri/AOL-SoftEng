@@ -22,7 +22,6 @@
 -->
 <div class="min-h-full">
   <x-navbar></x-navbar>
-  <img src="/gambar/gambar-1.png" alt="">
 
   <header class="bg-white shadow-sm">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -32,6 +31,11 @@
   </header>
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      @foreach ($posts as $post)
+        <h2><a href="{{ $post->slug }}">{{ $post->title }}</a></h2>
+        <p>{{ $post->excerpt }}</p>
+      @endforeach
+      
       <!-- Your content -->
       
     </div>

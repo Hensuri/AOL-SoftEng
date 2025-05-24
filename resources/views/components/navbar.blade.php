@@ -10,6 +10,10 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" class="{{ request()->is('/') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md  px-3 py-2 text-sm font-medium ">Dashboard</a>
               <a href="/team" class="{{ request()->is('team') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">Team</a>
+              @can('admin')
+                <a href="/upload" class="{{ request()->is('upload') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">Upload</a>
+              @endcan
+              
             </div>
           </div>
         </div>

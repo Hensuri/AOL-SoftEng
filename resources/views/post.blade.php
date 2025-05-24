@@ -22,8 +22,6 @@
 -->
 <div class="min-h-full">
   <x-navbar></x-navbar>
-  
-  <img src="/gambar/gambar-1.png" alt="">
 
   <header class="bg-white shadow-sm">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -33,6 +31,12 @@
   </header>
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      {{ $post->title }}
+      @if ($post->image)
+        <img src="{{ asset('/storage/'. $post->image) }}">
+      @endif
+      Written By :: {{ $post -> user->name  }}
+      {!! $post->content !!}
       <!-- Your content -->
     </div>
   </main>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\Game;
 
 class Post extends Model
 {
@@ -32,4 +33,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function games()
+    {
+        return $this->hasMany(Game::class);
+    }
+
 }

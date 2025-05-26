@@ -32,8 +32,8 @@
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       @foreach ($posts as $post)
-        <h2><a href="{{ $post->slug }}">{{ $post->title }}</a></h2>
-        <p>{{ $post->excerpt }}</p>
+        <h2 class="text-blue-600"><a  href="{{ $post->slug }}">{{ $post->title }}</a></h2>
+        <p>{!! $post->excerpt !!}</p>
       @endforeach
       
       <!-- Your content -->

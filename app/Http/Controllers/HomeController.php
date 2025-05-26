@@ -23,8 +23,7 @@ class HomeController extends Controller
     }
 
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $validatedData = $request->validate([
             'title'=> 'required|max:255',
             'slug'=>'required|max:255',
@@ -37,7 +36,7 @@ class HomeController extends Controller
         }
 
         $validatedData['user_id'] = Auth::user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->content), 100, '...');
+        $validatedData['excerpt'] = Str::limit($request->content, 100, '...');
 
         Post::create($validatedData);
         return redirect('/upload')->with('success', 'Berhasil membuat berita');
@@ -54,5 +53,4 @@ class HomeController extends Controller
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
-
 }

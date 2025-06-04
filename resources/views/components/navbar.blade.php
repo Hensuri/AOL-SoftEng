@@ -8,10 +8,10 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" class="{{ request()->is('/') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md  px-3 py-2 text-sm font-medium ">Dashboard</a>
+              <a href="/" class="{{ request()->is('/') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md  px-3 py-2 text-sm font-medium">Dashboard</a>
               <a href="/team" class="{{ request()->is('team') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">Team</a>
               @can('admin')
-                <a href="/upload" class="{{ request()->is('upload') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">Upload<i class="bi bi-0-circle"></i></a>
+                <a href="/admindashboard" class="{{ request()->is('upload') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">Upload<i class="bi bi-0-circle"></i></a>
               @endcan
               
             </div>
@@ -68,7 +68,7 @@
           @else
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/login" class="{{ request()->is('login') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium "><i class="bi bi-box-arrow-in-right"></i> Login</a>
+              <a href="/login" class="{{ request()->is('login') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium "><i class="bi bi-box-arrow-in-right"></i>Login</a>
             </div>
           @endauth
           

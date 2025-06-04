@@ -36,7 +36,7 @@
       @if ($post->image)
         <img src="{{ asset('/storage/'. $post->image) }}">
       @endif
-      Written By :: {{ $post -> user->name  }}
+      Written By : {{ $post -> user->username  }}
       {!! $post->content !!}
 
       <div class="min-h-screen flex items-center justify-center">

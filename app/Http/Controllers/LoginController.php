@@ -10,7 +10,7 @@ class LoginController extends Controller
     public function index(){
 
         if(Auth::check()){
-            return redirect("/team");
+            return redirect("/");
         }else{
             return view('login.index');
         }

@@ -9,7 +9,7 @@ class TeamController extends Controller
 {
     //
     public function index(){
-        $dataUser = User::whereNotNull('id')->get(["name", "username", "email"]);
+        $dataUser = User::whereNotNull('id')->get(["username", "email"]);
         return view('team', ['data'=> $dataUser]);
     }
 }

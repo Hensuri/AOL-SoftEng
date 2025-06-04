@@ -40,15 +40,6 @@ class QuizGame extends Component
         }
     }
 
-    // public function restart()
-    // {
-    //     $this->currentIndex = 0;
-    //     $this->score = 0;
-    //     $this->showResult = false;
-    //     $this->post = Post::with('games','games.questions')->get();
-    //     $this->currentQuestion = $this->post[0]->games[0]->questions[$this->currentIndex];
-    // }
-
     public function render()
     {
         return view('livewire.quiz-game');

@@ -1,4 +1,5 @@
 <div class="p-4 w-full mx-auto bg-white rounded shadow">
+
     @if (!$showResult)
         <h2 class="text-xl font-bold mb-4">Soal {{ $currentIndex + 1 }}</h2>
         <p class="mb-4">{{ $currentQuestion->question_text }}</p>
@@ -16,7 +17,6 @@
                loading...
             </div>
         </div>
-        
     @else
         <h2 class="text-xl font-bold mb-4">Selesai!</h2>
         <p class="mb-2">Skor kamu: {{ $score }} / {{ $post[0]->games[0]->questions->count() }}</p>

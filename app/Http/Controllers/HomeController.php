@@ -12,8 +12,15 @@ class HomeController extends Controller
 {
     //
     public function index(){
+        $post = Post::latest();
+
+        if(request('search')){
+            $post->where('title', 'like', '%'. request('search') .'%');
+        }
+    
+    
         return view("home", [
-            "posts" => Post::all(),
+            "posts" => $post->with(["user"])->get(),
         ]);
     }
 
@@ -26,7 +33,7 @@ class HomeController extends Controller
     public function store(Request $request){
         $validatedData = $request->validate([
             'title'=> 'required|max:255',
-            'slug'=>'required|max:255',
+            'slug'=>'required|max:255|unique:posts',
             'image'=> 'image|file',
             'content'=> 'required',
         ]);
@@ -52,5 +59,12 @@ class HomeController extends Controller
     public function createSlug(Request $request){
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
+    }
+
+    public function destroy(Post $post){
+        
+
+        Post::destroy($post->id);
+        return redirect('/upload')->with('success', 'Berhasil menghapus berita');
     }
 }

@@ -35,7 +35,6 @@
         <div>
           {{ $user->email }}
           {{ $user->username }}
-          {{ $user->name }}
         </div>
       @endforeach
     </div>

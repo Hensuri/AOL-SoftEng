@@ -34,12 +34,7 @@
   </header>
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <form action="/">
-        <div class="input-group mb-3 col-md-6">
-          <input type="text" class="form-control" placeholder="Search..." name="search" value={{ request('search') }}>
-          <button class="btn btn-danger" type="submit">Button</button>
-        </div>
-      </form>
+
       @foreach ($posts as $post)
         <h2 class="text-blue-600"><a  href="{{ $post->slug }}">{{ $post->title }}</a></h2>
         <p>{!! $post->excerpt !!}</p>

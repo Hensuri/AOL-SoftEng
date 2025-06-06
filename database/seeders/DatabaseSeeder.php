@@ -27,32 +27,34 @@ class DatabaseSeeder extends Seeder
         //     "post_id" => 1,
         // ]);
 
-        // Question::create([
-        //     "game_id" => 1,
-        //     "question_text" => "Berapa Hasil 1 + 1",
-        //     "correct_answer" => "a",
-        //     "option_a" => "2",
-        //     "option_b" => "3",
-        //     "option_c" => "4",
-        //     "option_d" => "5",
+        // Post::create([
+        //     "title"=> "Testing",
+        //     "user_id" => "1",
+        //     "slug"=> "testing",
+        //     "content"=>"Hallooo",
+        //     "excerpt"=>"Hallooo",
         // ]);
 
-        // Question::create([
-        //     "game_id" => 1,
-        //     "question_text" => "Berapa Hasil 2 + 1",
-        //     "correct_answer" => "b",
-        //     "option_a" => "2",
-        //     "option_b" => "3",
-        //     "option_c" => "4",
-        //     "option_d" => "5",
-        // ]);
-
-        Post::create([
-            "title"=> "Testing",
-            "user_id" => "1",
-            "slug"=> "testing",
-            "content"=>"Hallooo",
-            "excerpt"=>"Hallooo",
+        Question::create([
+            "post_id" => "2",
+            "question_text" => "Berapa Hasil 1 + 1",
+            "correct_answer" => "a",
+            "option_a" => "2",
+            "option_b" => "3",
+            "option_c" => "4",
+            "option_d" => "5",
         ]);
+
+        Question::create([
+            "post_id" => "2",
+            "question_text" => "Berapa Hasil 2 + 1",
+            "correct_answer" => "b",
+            "option_a" => "2",
+            "option_b" => "3",
+            "option_c" => "4",
+            "option_d" => "5",
+        ]);
+
+        
     }
 }

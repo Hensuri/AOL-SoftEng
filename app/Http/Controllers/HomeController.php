@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\User;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -14,11 +13,6 @@ class HomeController extends Controller
     public function index(){
         $post = Post::latest();
 
-        if(request('search')){
-            $post->where('title', 'like', '%'. request('search') .'%');
-        }
-    
-    
         return view("home", [
             "posts" => $post->with(["user"])->get(),
         ]);
@@ -30,24 +24,24 @@ class HomeController extends Controller
     }
 
 
-    public function store(Request $request){
-        $validatedData = $request->validate([
-            'title'=> 'required|max:255',
-            'slug'=>'required|max:255|unique:posts',
-            'image'=> 'image|file',
-            'content'=> 'required',
-        ]);
+    // public function store(Request $request){
+    //     $validatedData = $request->validate([
+    //         'title'=> 'required|max:255',
+    //         'slug'=>'required|max:255|unique:posts',
+    //         'image'=> 'image|file',
+    //         'content'=> 'required',
+    //     ]);
 
-        if($request->file('image')){
-            $validatedData['image'] = $request->file('image')->store('post-images');
-        }
+    //     if($request->file('image')){
+    //         $validatedData['image'] = $request->file('image')->store('post-images');
+    //     }
 
-        $validatedData['user_id'] = Auth::user()->id;
-        $validatedData['excerpt'] = Str::limit($request->content, 100, '...');
+    //     $validatedData['user_id'] = Auth::user()->id;
+    //     $validatedData['excerpt'] = Str::limit($request->content, 100, '...');
 
-        Post::create($validatedData);
-        return redirect('/upload')->with('success', 'Berhasil membuat berita');
-    }
+    //     Post::create($validatedData);
+    //     return redirect('/upload')->with('success', 'Berhasil membuat berita');
+    // }
 
     public function show(Post $post){
         $post->load('user');
@@ -56,15 +50,15 @@ class HomeController extends Controller
         ]);
     }
 
-    public function createSlug(Request $request){
-        $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
-        return response()->json(['slug' => $slug]);
-    }
+    // public function createSlug(Request $request){
+    //     $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+    //     return response()->json(['slug' => $slug]);
+    // }
 
-    public function destroy(Post $post){
+    // public function destroy(Post $post){
         
 
-        Post::destroy($post->id);
-        return redirect('/upload')->with('success', 'Berhasil menghapus berita');
-    }
+    //     Post::destroy($post->id);
+    //     return redirect('/upload')->with('success', 'Berhasil menghapus berita');
+    // }
 }

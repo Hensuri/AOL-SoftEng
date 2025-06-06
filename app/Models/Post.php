@@ -34,9 +34,9 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function games()
+    public function question()
     {
-        return $this->hasMany(Game::class);
+        return $this->hasMany(Question::class);
     }
 
 }

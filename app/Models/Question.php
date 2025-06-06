@@ -8,7 +8,7 @@ class Question extends Model
 {
     public $timestamps = false;
     protected $fillable = [
-        'game_id',
+        'post_id',
         'question_text',
         'correct_answer',
         'option_a',
@@ -17,9 +17,9 @@ class Question extends Model
         'option_d',
     ];
 
-    public function game()
+    public function post()
     {
-        return $this->belongsTo(Game::class);
+        return $this->belongsTo(Post::class);
     }
 
 }

@@ -1,5 +1,5 @@
 <div class="p-4 w-full mx-auto bg-white rounded shadow">
-
+    
     @if (!$showResult)
         <h2 class="text-xl font-bold mb-4">Soal {{ $currentIndex + 1 }}</h2>
         <p class="mb-4">{{ $currentQuestion->question_text }}</p>
@@ -19,7 +19,7 @@
         </div>
     @else
         <h2 class="text-xl font-bold mb-4">Selesai!</h2>
-        <p class="mb-2">Skor kamu: {{ $score }} / {{ $post[0]->games[0]->questions->count() }}</p>
+        <p class="mb-2">Skor kamu: {{ $score }} / {{ $post->question->count() }}</p>
         {{-- <button wire:click="restart" class="mt-4 bg-green-500 text-white px-4 py-2 rounded">Main Lagi</button> --}}
     @endif
 </div>

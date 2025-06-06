@@ -4,7 +4,6 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
-use App\Models\Game;
 use App\Models\GameResult;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
@@ -17,26 +16,40 @@ class QuizGame extends Component
     public $score = 0;
     public $showResult = false;
 
-    public function mount()
+    public function mount($post)
     {
-        $this->post = Post::with('games','games.questions')->get();
-        $this->currentQuestion = $this->post[0]->games[0]->questions[$this->currentIndex];
+        // dd($post);
+        $this->post = $post;
+
+        $hasPlayed = GameResult::where('post_id', $this->post->id)
+                        ->where('user_id', Auth::id())
+                        ->exists();
+
+        if ($hasPlayed) {
+            $this->showResult = true;
+            $this->score = GameResult::where('post_id', $this->post->id)
+                            ->where('user_id', Auth::id())
+                            ->value('score');
+            return;
+        }
+
+        $this->currentQuestion = $this->post->question[$this->currentIndex];
     }
 
     public function answer($option)
     {
-        // dd($option);
+        // 
         if ($option == $this->currentQuestion->correct_answer) {
             $this->score++;
         }
 
         $this->currentIndex++;
 
-        if ($this->currentIndex < $this->post[0]->games[0]->questions->count()) {
-            $this->currentQuestion = $this->post[0]->games[0]->questions[$this->currentIndex];
+        if ($this->currentIndex < $this->post->question->count()) {
+            $this->currentQuestion = $this->post->question[$this->currentIndex];
         } else {
             $this->showResult = true;
-            GameResult::create(['game_id' => $this->post[0]->games[0]->id, 'user_id' => Auth::user()->id, 'score' => $this->score]);
+            GameResult::create(['post_id' => $this->post->id, 'user_id' => Auth::user()->id, 'score' => $this->score]);
         }
     }
 

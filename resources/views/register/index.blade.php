@@ -33,7 +33,7 @@
       </div>
       <button type="submit" class="btnregister">Register</button>
       <div class="register-link">
-        <p>Already have an account? <a href="Login.html">Login now</a></p>
+        <p>Already have an account? <a href="/login">Login now</a></p>
       </div>
        <div>
                 <a href="/" class="home">Home</a>

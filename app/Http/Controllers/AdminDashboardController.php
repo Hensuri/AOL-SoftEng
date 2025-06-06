@@ -35,7 +35,7 @@ class AdminDashboardController extends Controller
         $validatedData = $request->validate([
             'title'=> 'required|max:255',
             'slug'=>'required|max:255|unique:posts',
-            'image'=> 'image|file',
+            'image'=> 'required|image|file',
             'content'=> 'required',
         ]);
 
@@ -44,7 +44,6 @@ class AdminDashboardController extends Controller
         }
 
         $validatedData['user_id'] = Auth::user()->id;
-        $validatedData['excerpt'] = Str::limit($request->content, 100, '...');
 
         Post::create($validatedData);
         return redirect('/admindashboard')->with('success', 'Berhasil membuat berita');

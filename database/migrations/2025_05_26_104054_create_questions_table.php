@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('game_id')->constrained()->onDelete('cascade');
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
             $table->text('question_text');
             $table->string('correct_answer', 255)->nullable();
             $table->string('option_a', 255)->nullable();

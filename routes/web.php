@@ -9,6 +9,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\UserDashboardController;
 
 Route::get('/', [HomeController::class,'index']);
 
@@ -16,9 +18,18 @@ Route::group(['middleware' => 'authed'], function () {
     Route::get('/team', [TeamController::class, 'index']);
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
 
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::resource('dashboard', UserDashboardController::class);
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::get('/leaderboard', [LeaderboardController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm']);

@@ -7,6 +7,7 @@ use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class AdminDashboardController extends Controller
 {
@@ -17,7 +18,7 @@ class AdminDashboardController extends Controller
     {
         
 
-        return view("admin.upload",["posts" => Post::all()]);
+        return view("admin.admindashboard",["posts" => Post::all()]);
     }
 
     /**
@@ -36,7 +37,7 @@ class AdminDashboardController extends Controller
             'title'=> 'required|max:255',
             'slug'=>'required|max:255|unique:posts',
             'image'=> 'required|image|file',
-            'content'=> 'required',
+            'excerpt' => 'required'
         ]);
 
         if($request->file('image')){
@@ -60,17 +61,21 @@ class AdminDashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->firstOrFail();
+        return view('admin.edit', [
+            'post'=> $post
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update($id)
     {
-        //
+        Post::where('id', $id)->update(['published' => 1, 'date_published'=>  Carbon::now()->toDateTimeString()]);
+        return redirect('/admindashboard')->with('success','Berhasil Publish Berita');
     }
 
     /**

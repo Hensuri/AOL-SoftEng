@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0d0d0d;
+    color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    padding-left: 65px;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 90;
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid white;
+}
+
+header .ButtonLogo{
+    position: relative;
+    font-size: 2em;
+    color: white;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-weight: 1000;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  margin-top: 80px;
+}
+
+.headline {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.subheadline {
+  color: #ccc;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.author-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.author-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.author-info {
+  font-size: 14px;
+}
+
+.author-name {
+  font-weight: bold;
+}
+
+.author-role,
+.date {
+  color: #aaa;
+  margin: 2px 0;
+}
+
+.article-image img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.caption {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.share-buttons {
+  margin: 15px 0;
+}
+
+.share-buttons button {
+  background: none;
+  border: 1px solid #555;
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.trust-note {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.wrapper .home {
+     display: inline-block; 
+    padding: 10px 25px; 
+    background-color: transparent; 
+    border: 2px solid white; 
+    border-radius: 6px;
+    color: white; 
+    text-decoration: none; 
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+
+.wrapper .home:hover {
+    background-color: white; 
+    color: #333; 
+    border-color: #333; 
+}

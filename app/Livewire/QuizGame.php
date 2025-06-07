@@ -18,7 +18,6 @@ class QuizGame extends Component
 
     public function mount($post)
     {
-        // dd($post);
         $this->post = $post;
 
         $hasPlayed = GameResult::where('post_id', $this->post->id)

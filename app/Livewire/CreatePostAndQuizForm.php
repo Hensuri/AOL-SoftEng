@@ -14,12 +14,41 @@ class CreatePostAndQuizForm extends Component
 {
     use WithFileUploads;
 
-    public $title, $slug, $content, $image;
+    public $title, $slug, $content, $image, $post, $excerpt, $old_slug, $id;
     public $questions = [];
 
-    public function mount()
+    public function mount($post)
     {
-        $this->addQuestion();
+        $this->post = $post;
+        $this->id = $post->id;
+        $this->title = $post->title;
+        $this->slug = $post->slug;
+        $this->content = $post->content;
+        $this->image = $post->image;
+        $this->excerpt = $post->excerpt;
+        $this->old_slug = $post->slug;
+        // $hasQuiz = Question::where('post_id', $this->post->id)
+        //                 ->where('user_id', Auth::id())
+        //                 ->exists();
+        $dbQuestions = Question::where('post_id', $this->id)->get();
+
+        // Jika ada, masukkan ke dalam $this->questions
+        if ($dbQuestions->isNotEmpty()) {
+            foreach ($dbQuestions as $q) {
+                $this->questions[] = [
+                    'question' => $q->question_text,
+                    'a' => $q->option_a,
+                    'b' => $q->option_b,
+                    'c' => $q->option_c,
+                    'd' => $q->option_d,
+                    'correct' => $q->correct_answer,
+                ];
+            }
+        }
+        else{
+            $this->addQuestion();
+        }
+        
     }
 
     public function addQuestion()
@@ -45,38 +74,25 @@ class CreatePostAndQuizForm extends Component
 
     public function save()
     {
-        // Validasi berita
-        // dd([
-        //     'title' => $this->title,
-        //     'slug' => $this->slug,
-        //     'content' => $this->content,
-        //     'image' => $this->image,
-        // ]);
-        
-        $validatedData = $this->validate([
+        $rules = [
             'title' => 'required|max:255',
-            'slug' => 'required|max:255|unique:posts,slug',
             'content' => 'required',
-            'image' => 'image|max:20480',
-        ]);
-        // dd($validatedData);
-        // Simpan gambar jika ada
-        if ($this->image) {
-            $validatedData['image'] = $this->image->store('post-images');
+            'excerpt' => 'required',
+        ];
+        
+        if($this->slug != $this->old_slug){
+            $rules['slug'] = 'required|unique:posts';
         }
+        $validatedData = $this->validate($rules);
 
-        // Tambahkan data user & excerpt
         $validatedData['user_id'] = Auth::id();
-        $validatedData['excerpt'] = Str::limit($this->content, 100, '...');
 
-        // Simpan berita
-        $post = Post::create($validatedData);
+        $post = Post::updateOrCreate(
+            ['id' => $this->id], 
+            $validatedData
+        );
 
         foreach ($this->questions as $q) {
-            if (!$q['question'] || !$q['a'] || !$q['b'] || !$q['c'] || !$q['d'] || !$q['correct']) {
-                session()->flash('error', 'Semua kolom harus diisi.');
-                return;
-            }
             Question::create([
                 'post_id' => $post->id,
                 'question_text' => $q['question'],
@@ -92,10 +108,14 @@ class CreatePostAndQuizForm extends Component
         $this->addQuestion();
 
         session()->flash('success', 'Pertanyaan berhasil disimpan.');
+        return redirect('/admindashboard');
     }
 
     public function render()
     {
-        return view('livewire.create-post-and-quiz-form');
+        // dd($this->post);
+        return view('livewire.create-post-and-quiz-form', [
+            'post' => $this->post
+        ]);
     }
 }

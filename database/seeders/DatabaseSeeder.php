@@ -27,16 +27,16 @@ class DatabaseSeeder extends Seeder
         //     "post_id" => 1,
         // ]);
 
-        // Post::create([
-        //     "title"=> "Testing",
-        //     "user_id" => "1",
-        //     "slug"=> "testing",
-        //     "content"=>"Hallooo",
-        //     "excerpt"=>"Hallooo",
-        // ]);
+        Post::create([
+            "title"=> "Testing",
+            "user_id" => "1",
+            "slug"=> "testing",
+            "content"=>"Hallooo",
+            "excerpt"=>"Hallooo",
+        ]);
 
         Question::create([
-            "post_id" => "2",
+            "post_id" => "1",
             "question_text" => "Berapa Hasil 1 + 1",
             "correct_answer" => "a",
             "option_a" => "2",
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Question::create([
-            "post_id" => "2",
+            "post_id" => "1",
             "question_text" => "Berapa Hasil 2 + 1",
             "correct_answer" => "b",
             "option_a" => "2",

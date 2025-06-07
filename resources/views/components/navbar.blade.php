@@ -13,6 +13,7 @@
               @can('admin')
                 <a href="/admindashboard" class="{{ request()->is('upload') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">Upload<i class="bi bi-0-circle"></i></a>
               @endcan
+              <a href="/leaderboard" class="{{ request()->is('leaderboard') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">Leaderboard</a>
               
             </div>
           </div>
@@ -27,7 +28,7 @@
                 <button type="button" @click="isOpen = !isOpen" class="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Open user menu</span>
-                  <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                  <img class="size-8 rounded-full" src="{{ auth()->user()->image }}" alt="">
                   <div class="bg-gray-800 p-2 text-gray-400 ml-10 rounded-[20px]"  >
                     Welcome, {{ auth()->user()->name }}
                   </div>
@@ -96,7 +97,7 @@
       <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="/" class="{{ request()->is('/') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}block rounded-md px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
-        <a href="/team" class="{{ request()->is('team') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}block rounded-md px-3 py-2 text-base font-medium ">Team</a>
+        <a href="/leaderboard" class="{{ request()->is('leaderboard') ? 'text-white bg-gray-900 ' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}}block rounded-md px-3 py-2 text-base font-medium ">Leaderboard</a>
       </div>
       
     </div>

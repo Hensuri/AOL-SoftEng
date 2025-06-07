@@ -319,9 +319,29 @@
         .action-buttons button:hover {
             transform: translateY(-1px);
         }
-        .action-buttons .view-btn { background-color: #007bff; }
+        .action-buttons a {
+            border: none;
+            padding: 8px 10px; 
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-right: 5px; 
+            font-size: 14px; 
+        }
+
+        .action-buttons a:hover {
+            transform: translateY(-1px);
+        }
+
+        .action-buttons .view-btn { 
+            background-color: #007bff; 
+            color: black;
+        }
         .action-buttons .view-btn:hover { background-color: #0069d9; }
-        .action-buttons .setting-btn { background-color: #28a745; }
+        .action-buttons .setting-btn { 
+            background-color: #28a745; 
+            color: black;
+        }
         .action-buttons .setting-btn:hover { background-color: #218838; }
         .action-buttons .delete-btn { background-color: #e63946; }
         .action-buttons .delete-btn:hover { background-color: #c92b37; }

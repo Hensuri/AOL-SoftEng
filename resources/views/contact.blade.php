@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
-    <script src="script.js"></script> 
-    <title>Website 2.0</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>about</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <x-navigationbar></x-navigationbar>
-  <div class="news-section">
-    @foreach ($posts as $post)
-    <div class="secondary-news">
-      <div class="news-item">
-        <img src="{{ asset('/storage/'. $post->image) }}" class="news-icon">
-        <div class="news-content">
-          <a href="{{ $post->slug }}" class="news1">
-            <h3>{{ $post->title }}</h3>
-            <p>{{ $post->excerpt }}</p>
-          </a>
-        </div>
-      </div>
-    </div>
-    @endforeach
-</div>
-    <script>
+  <x-navigationbar></x-navigationbar>
+  <div class="container">
+    <h1>CyberNewsIndonesia</h1>
+    <p>Steven Hartono (steven.hartono001@binus.ac.id)</p>
+    <p>Hensley Herbert Tantrawan (hensley.tantrawan@binus.ac.id)</p>
+    <p>Richard Hidayat (richard.hidayat@binus.ac.id)</p>
+    <p>Caline Philandry Chou (caline.chou@binus.ac.id)</p>
+    <p>Paul Abednego Hasphine (paul.hasphine@binus.ac.id)</p>
+  </div>
+
+  <script>
           window.onload = function() {
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();

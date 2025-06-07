@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
-    <script src="script.js"></script> 
-    <title>Website 2.0</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>about</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
-    <x-navigationbar></x-navigationbar>
-  <div class="news-section">
-    @foreach ($posts as $post)
-    <div class="secondary-news">
-      <div class="news-item">
-        <img src="{{ asset('/storage/'. $post->image) }}" class="news-icon">
-        <div class="news-content">
-          <a href="{{ $post->slug }}" class="news1">
-            <h3>{{ $post->title }}</h3>
-            <p>{{ $post->excerpt }}</p>
-          </a>
-        </div>
-      </div>
-    </div>
-    @endforeach
-</div>
-    <script>
+  <x-navigationbar></x-navigationbar>
+  
+  <div class="photo">
+    <img src="About.jpg">
+  </div> 
+
+  <div class="container">
+    <h1>About Us</h1>
+    <p>
+      Website cyberNewsIndonesia adalah sebuah platform digital yang dirancang untuk memberikan informasi, edukasi, dan layanan terkait keamanan siber di lingkungan Indonesia. 
+      Website ini bertujuan untuk meningkatkan kesadaran masyarakat tentang pentingnya perlindungan data pribadi, ancaman siber, serta langkah-langkah pencegahan yang dapat diambil oleh individu maupun institusi. 
+      Konten di dalamnya mencakup berita terkini seputar insiden siber di Indonesia, panduan keamanan digital, serta layanan pelaporan kejahatan siber yang bekerja sama dengan lembaga resmi seperti BSSN (Badan Siber dan Sandi Negara) dan Kepolisian Republik Indonesia. 
+      Dengan adanya website ini, diharapkan masyarakat Indonesia menjadi lebih waspada dan terampil dalam menghadapi tantangan dunia digital yang terus berkembang.
+    </p>
+  </div>
+      <script>
           window.onload = function() {
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
@@ -64,6 +63,6 @@
             }
         };
     </script>
-
 </body>
 </html>
+

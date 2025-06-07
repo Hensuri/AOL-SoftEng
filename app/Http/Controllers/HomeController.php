@@ -11,17 +11,17 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        $post = Post::latest();
+        $post = Post::where('published', 1)->latest();
 
         return view("home", [
             "posts" => $post->with(["user"])->get(),
         ]);
     }
 
-    public function create()
-    {
-        return view("admin.upload");
-    }
+    // public function create()
+    // {
+    //     return view("admin.upload");
+    // }
 
 
     // public function store(Request $request){

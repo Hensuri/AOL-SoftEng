@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('excerpt');
-            $table->string('content');
+            $table->longText('content')->nullable();
             $table->string('published')->default('0');
-            $table->date('date_published')->nullable();
+            $table->datetime('date_published')->nullable();
             $table->timestamps();
         });
     }

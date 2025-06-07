@@ -5,29 +5,38 @@
     font-family: 'Poppins', sans-serif;
 }
 
-html, body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    background-color: rgb(24, 23, 23);
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #181717;
+    color: #f2f2f2;
 }
 
 header {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%; 
     height: 100px;
-    padding: 20px 5%;
+    padding: 20px 5%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 90;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid white;
-    background-color: rgba(24, 23, 23, 0.8); 
+    background-color: #181717;
 }
 
+header .ButtonLogo {
+    position: relative;
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+    font-weight: 1000;
+}
 
 .navigation {
     display: flex;
@@ -35,7 +44,8 @@ header {
     flex-wrap: wrap;
 }
 
-.navigation a:not(.btnprofile) {
+
+.navigation a:not(.ButtonLogin):not(.btnprofile) {
     position: relative;
     font-size: 1.1em;
     color: white;
@@ -46,7 +56,7 @@ header {
     white-space: nowrap;
 }
 
-.navigation a:not(.btnprofile)::after {
+.navigation a:not(.ButtonLogin):not(.btnprofile)::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -59,30 +69,26 @@ header {
     transition: transform 0.5s;
 }
 
-.navigation a:not(.btnprofile):hover::after {
+.navigation a:not(.ButtonLogin):not(.btnprofile):hover::after {
     transform: scaleX(1);
 }
 
-.navigation .ButtonLogin,
-.navigation .btnprofile {
+.navigation .ButtonLogin {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1em;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: 0.5s;
-}
-
-.navigation .ButtonLogin {
     width: 130px;
     height: 50px;
+    background: transparent;
     border: 2px solid white;
     border-radius: 6px;
-    background: transparent;
+    cursor: pointer;
+    font-size: 1em;
     color: white;
+    font-weight: 500;
+    text-decoration: none;
     margin-left: 30px;
+    transition: 0.5s;
 }
 
 .navigation .ButtonLogin:hover {
@@ -91,6 +97,9 @@ header {
 }
 
 .navigation .btnprofile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 50px;
     height: 50px;
     background: transparent;
@@ -99,6 +108,8 @@ header {
     color: white;
     margin-left: 30px;
     padding: 0;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 .navigation .btnprofile svg {
@@ -112,22 +123,6 @@ header {
     color: black;
 }
 
-
-.content {
-    padding: 20px 5%;
-    color: white;
-    margin-top: 120px; 
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.content h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-/* ===== DROPDOWN ===== */
 .profile-dropdown {
     position: absolute;
     top: calc(100% + 10px);
@@ -156,6 +151,14 @@ header {
     display: flex;
     align-items: center;
 }
+
+.profile-dropdown [role="menuitem"]{
+    background: transparent;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+};
 
 .dropdown-header .avatar {
     width: 32px;
@@ -216,4 +219,62 @@ header {
     height: 1px;
     background-color: #4a5568;
     margin: 8px 0;
+}
+
+
+.content {
+    padding: 20px 5%;
+    color: white;
+    margin-top: 120px; 
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.content h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.news-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.secondary-news .news-item {
+  display: flex;
+  background-color: #1a1a1a;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  align-items: flex-start;
+}
+
+.news-icon {
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.news-content h3 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+.news-content p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.news-content a {
+  font-size: 14px;
+  color: #aaa;
+  text-decoration: none;
+}
+
+.news-content a:hover {
+  color: rgb(255, 255, 255);
 }

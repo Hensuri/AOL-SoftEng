@@ -34,7 +34,7 @@ class UserDashboardController extends Controller
         $validatedData = $request->validate($rules);
 
         if($request->file('image')){
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = $request->file('image')->store('profile');
         }
         // dd($user->id, $request->password, $user->password); 
         if (Auth::attempt(['id' => $user->id, 'password' => $request->password])) {

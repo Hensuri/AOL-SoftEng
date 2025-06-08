@@ -15,7 +15,6 @@ class LeaderboardController extends Controller
         ->orderByDesc('total_score')
         ->limit(10)
         ->get();
-
         return view("leaderboard", [
             "users" => $users, 
         ]);

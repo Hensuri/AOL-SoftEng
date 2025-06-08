@@ -10,10 +10,6 @@
 <body>
   <x-navigationbar></x-navigationbar>
   
-  <div class="photo">
-    <img src="About.jpg">
-  </div> 
-
   <div class="container">
     <h1>About Us</h1>
     <p>

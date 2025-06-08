@@ -34,7 +34,7 @@
 
                 <div class="form-group">
                     <label for="fileUploadInputTrigger">Gambar</label>
-                    <div class="file-input-wrapper" onclick="document.getElementById('fileUploadInputTrigger').click();">
+                    <div class="file-input-wrapper" onclick="document.getElementById('fileUploadInputTrigger')">
                         <input type="file" id="fileUploadInputTrigger" name="image" class="file-input">
                         <label for="fileUploadInputTrigger" class="file-label">
                             <i class="fas fa-folder-open"></i>

@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/post.css">
     <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="css/home.css">
     @livewireStyles
     <title>News1</title>
 </head>
 <body>
-    <header>
-        <Nav class="Logo">
-        <a href="index.html" class="ButtonLogo">CyberNewsIndonesia</a>
-        </Nav>
-    </header>
+  <x-navigationbar></x-navigationbar>
     
     <div class="container">
         <h1 class="headline">{{ $post->title }}</h1>
@@ -44,5 +41,46 @@
     
   </div>
   @livewireScripts
+
+    <script>
+          window.onload = function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error("Pustaka Lucide tidak terdefinisi ketika window.onload dijalankan. Periksa pemuatan skrip.");
+            }
+            const profileBtn = document.getElementById('profileBtn');
+            const profileDropdown = document.getElementById('profileDropdown');
+            if (profileBtn && profileDropdown) {
+                profileBtn.addEventListener('click', function(event) {
+                    event.stopPropagation();        
+                    const isExpanded = profileBtn.getAttribute('aria-expanded') === 'true' || false;
+                    profileBtn.setAttribute('aria-expanded', !isExpanded);
+                    profileDropdown.classList.toggle('active');
+                    profileBtn.classList.toggle('active'); 
+                });   
+                document.addEventListener('click', function(event) {
+                    if (profileDropdown.classList.contains('active')) {
+                        if (!profileDropdown.contains(event.target) && !profileBtn.contains(event.target)) {
+                            profileDropdown.classList.remove('active');
+                            profileBtn.classList.remove('active');
+                            profileBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'Escape') {
+                        if (profileDropdown.classList.contains('active')) {
+                            profileDropdown.classList.remove('active');
+                            profileBtn.classList.remove('active');
+                            profileBtn.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            } else {
+                console.error("Tombol profil atau elemen dropdown tidak ditemukan.");
+            }
+        };
+    </script>
 </body>
 </html>

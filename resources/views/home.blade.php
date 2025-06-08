@@ -8,7 +8,7 @@
     <title>Website 2.0</title>
 </head>
 <body>
-    <x-navigationbar></x-navigationbar>
+<x-navigationbar></x-navigationbar>
   <div class="news-section">
     @foreach ($posts as $post)
     <div class="secondary-news">

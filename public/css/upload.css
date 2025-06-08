@@ -306,6 +306,12 @@
             background-color: #292929;
         }
 
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .action-buttons button {
             color: white;
             border: none;
@@ -342,6 +348,11 @@
             background-color: #28a745; 
             color: black;
         }
+
+        .action-buttons .fas {
+            color: black;
+        }
+
         .action-buttons .setting-btn:hover { background-color: #218838; }
         .action-buttons .delete-btn { background-color: #e63946; }
         .action-buttons .delete-btn:hover { background-color: #c92b37; }

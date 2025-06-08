@@ -198,6 +198,18 @@ header .ButtonLogo {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+
+.dropdown-header .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #4a5568;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .profile-dropdown .dropdown-item svg {
     width: 18px;
     height: 18px;
@@ -244,7 +256,7 @@ header .ButtonLogo {
 
 .secondary-news .news-item {
   display: flex;
-  background-color: #1a1a1a;
+  background-color: #000000;
   margin-bottom: 20px;
   padding: 15px;
   border-radius: 8px;

@@ -16,18 +16,6 @@
                 <input type="text" wire:model="slug" id="slug" class="form-control"  required value="{{ old('slug') }}">
             </div>
 
-            {{-- <div class="form-group">
-                <label for="imageInput">Gambar utama</label>
-                    <div id="uploadArea" class="upload-area">
-                            <div class="upload-text">
-                                <label for="imageInput">
-                                    <span>Unggah Gambar</span>
-                            </label>
-                            <input type="file" name="imageInput" id="imageInput" accept="image/*" style="display: none;">
-                        </div>
-                    </div>
-            </div> --}}
-
             <div class="form-group">
                 <label for="content">Isi Berita</label>
                 <textarea id="content" wire:model="content" class="form-control" required value="{{ old('content')}}"></textarea>
@@ -78,7 +66,7 @@
                         <div class="form-group">
                             <div class="option-group">
                                 <div class="form-control">
-                                    <input wire:model="questions.{{ $index }}.correct" type="text" id="correct-answer" placeholder="Opsi Jawaban Yang Benar {1,2,3,4}">
+                                    <input wire:model="questions.{{ $index }}.correct" type="text" id="correct-answer" placeholder="Opsi Jawaban Yang Benar {a,b,c,d}">
                                 </div>
                             </div>
                         </div>

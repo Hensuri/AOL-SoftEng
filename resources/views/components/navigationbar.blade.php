@@ -4,9 +4,10 @@
         </Nav>
         <nav class="navigation">
             <a href="/about">About</a>
-            <a href="/contact">Contact</a>   
+            <a href="/contact">Contact</a>
+            <a href="/leaderboard">Leaderboard</a>   
             @auth
-              <ion-icon name="person-circle-outline" id="profileBtn" class="btnprofile" onclick="toggleDropdown()"></ion-icon>
+              <img src="{{ asset('/storage/'. auth()->user()->image) }}"  class="btnprofile" id="profileBtn" onclick="toggleDropdown()">
             @else
               <a href="/login" class="ButtonLogin">Login</a>
             @endauth
@@ -15,13 +16,15 @@
         @auth
           <div class="profile-dropdown" id="profileDropdown" role="menu">
                     <div class="dropdown-header">
-                        <ion-icon name="person-circle-outline" class="avatar"></ion-icon>
+                        <img src="{{ asset('/storage/'. auth()->user()->image) }}"  class="avatar">
                         <span class="username">{{ auth()->user()->username }}</span>
                     </div>
                     <ul>
                         <li><a href="/dashboard" class="dropdown-item" role="menuitem"> Dashboard</a></li>
-                        <li><a href="/admindashboard" class="dropdown-item" role="menuitem">Upload News</a></li>
-                        <li><a href="/leaderboard" class="dropdown-item" role="menuitem"> Leader Board</a></li>
+                        @can("admin")
+                          <li><a href="/admindashboard" class="dropdown-item" role="menuitem">Upload News</a></li>
+                        @endcan
+                        {{-- <li><a href="/leaderboard" class="dropdown-item" role="menuitem"> Leader Board</a></li> --}}
                     </ul>
                     <div class="dropdown-divider"></div>
                     <form action="/logout" method="POST">

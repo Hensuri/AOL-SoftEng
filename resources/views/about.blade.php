@@ -13,7 +13,10 @@
   <div class="container">
     <h1>About Us</h1>
     <p>
-      Hackedd
+      Website cyberNewsIndonesia adalah sebuah platform digital yang dirancang untuk memberikan informasi, edukasi, dan layanan terkait keamanan siber di lingkungan Indonesia. 
+      Website ini bertujuan untuk meningkatkan kesadaran masyarakat tentang pentingnya perlindungan data pribadi, ancaman siber, serta langkah-langkah pencegahan yang dapat diambil oleh individu maupun institusi. 
+      Konten di dalamnya mencakup berita terkini seputar insiden siber di Indonesia, panduan keamanan digital, serta layanan pelaporan kejahatan siber yang bekerja sama dengan lembaga resmi seperti BSSN (Badan Siber dan Sandi Negara) dan Kepolisian Republik Indonesia. 
+      Dengan adanya website ini, diharapkan masyarakat Indonesia menjadi lebih waspada dan terampil dalam menghadapi tantangan dunia digital yang terus berkembang.
     </p>
   </div>
       <script>

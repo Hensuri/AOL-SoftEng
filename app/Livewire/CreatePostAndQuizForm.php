@@ -36,6 +36,7 @@ class CreatePostAndQuizForm extends Component
         if ($dbQuestions->isNotEmpty()) {
             foreach ($dbQuestions as $q) {
                 $this->questions[] = [
+                    'id' => $q->id,
                     'question' => $q->question_text,
                     'a' => $q->option_a,
                     'b' => $q->option_b,
@@ -54,6 +55,7 @@ class CreatePostAndQuizForm extends Component
     public function addQuestion()
     {
         $this->questions[] = [
+            'id'=> '',
             'question' => '',
             'a' => '',
             'b' => '',
@@ -63,7 +65,15 @@ class CreatePostAndQuizForm extends Component
         ];
     }
 
-    public function deleteQuestion(int $index){
+    public function deleteQuestion(int $index)
+    {
+        if (isset($this->questions[$index])) {
+            $questionId = $this->questions[$index]['id'];
+
+            if ($questionId) {
+                Question::where('id', $questionId)->delete();
+            }
+        }
         unset($this->questions[$index]);
     }
 
@@ -93,7 +103,9 @@ class CreatePostAndQuizForm extends Component
         );
 
         foreach ($this->questions as $q) {
-            Question::create([
+            Question::updateOrCreate(
+                ['id' => $q['id']],
+                [
                 'post_id' => $post->id,
                 'question_text' => $q['question'],
                 'option_a' => $q['a'],

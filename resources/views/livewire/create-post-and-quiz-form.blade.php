@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <div class="option-group">
                                 <div class="form-control">
-                                    <input wire:model="questions.{{ $index }}.b"type="text" id="opsion2-input" placeholder="Opsi 2 (biru ◆)">
+                                    <input wire:model="questions.{{ $index }}.b" type="text" id="opsion2-input" placeholder="Opsi 2 (biru ◆)">
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                         <div class="form-group">
                             <div class="option-group">
                                 <div class="form-control">
-                                    <input wire:model="questions.{{ $index }}.d"type="text" id="opsion4-input" placeholder="Opsi 4 (hijau ■)">
+                                    <input wire:model="questions.{{ $index }}.d" type="text" id="opsion4-input" placeholder="Opsi 4 (hijau ■)">
                                 </div>
                             </div>
                         </div>

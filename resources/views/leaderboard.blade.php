@@ -13,8 +13,12 @@
     <div class="main-container">
 
         <div class="profile-container">
-            <h2>Top Players</h2>
-            <div class="profile-list">
+            @if ($users->count() == 0)
+                
+                <h2>Data Kosong</h2>
+            @else
+                <h2>Top Players</h2>
+                <div class="profile-list">
                 @if ($users->count() >= 2)
                     <div class="profile-item">
                     <div class="profile-avatar-1">
@@ -48,10 +52,12 @@
                 @endif
                 
             </div>
+            @endif
+            
         </div>
         @if ($users->count() >= 4)
             <div class="table-container">
-                <h2>Leader Board</h2>
+                <h2>Leaderboard</h2>
                 <table>
                     <thead>
                         <tr>
